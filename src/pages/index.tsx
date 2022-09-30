@@ -39,7 +39,7 @@ export default function Home({ postsPagination }: HomeProps) {
         </div>
         <div className={styles.postsList}>
           <Link href="/#">
-            <a>
+            <a className={styles.post}>
               <h1>Título da postagem</h1>
               <p>
                 Excerpt da postagem vai aqui asdjk hasdkas hkadjkas dhask asd.
@@ -51,7 +51,7 @@ export default function Home({ postsPagination }: HomeProps) {
             </a>
           </Link>
           <Link href="/#">
-            <a>
+            <a className={styles.post}>
               <h1>Título da postagem</h1>
               <p>
                 Excerpt da postagem vai aqui asdjk hasdkas hkadjkas dhask asd.
@@ -63,7 +63,7 @@ export default function Home({ postsPagination }: HomeProps) {
             </a>
           </Link>
           <Link href="/#">
-            <a>
+            <a className={styles.post}>
               <h1>Título da postagem</h1>
               <p>
                 Excerpt da postagem vai aqui asdjk hasdkas hkadjkas dhask asd.
@@ -75,7 +75,7 @@ export default function Home({ postsPagination }: HomeProps) {
             </a>
           </Link>
           <Link href="/#">
-            <a>
+            <a className={styles.post}>
               <h1>Título da postagem</h1>
               <p>
                 Excerpt da postagem vai aqui asdjk hasdkas hkadjkas dhask asd.

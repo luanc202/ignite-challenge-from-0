@@ -1,12 +1,11 @@
 .container {
-    max-width: 1120px;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 0rem;
 
-    background-color: red;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: left;
 }
 
@@ -20,4 +19,27 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.post {
+    color: #F8F8F8;
+    > p {
+        color: #D7D7D7;
+        font-family: 'Inter';
+        font-weight: 400;
+    }
+    > h1 {
+        font-family: 'Inter';
+        font-weight: 700;
+    }
+    > div > time {
+        color: #BBBBBB;
+        font-family: 'Inter';
+        font-weight: 400;
+    }
+    > div > span {
+        color: #BBBBBB;
+        font-family: 'Inter';
+        font-weight: 400;
+    }
 }
