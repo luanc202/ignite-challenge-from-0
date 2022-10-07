@@ -2,6 +2,7 @@
     max-width: 700px;
     margin: 0 auto;
     padding: 0 0rem;
+    margin-bottom: 5rem;
 
     display: flex;
     flex-direction: column;
@@ -12,6 +13,8 @@
 .logoImage {
     display: flex;
     justify-self: flex-end;
+    margin-top: 5rem;
+    margin-bottom: 4rem;
 }
 
 .postsList {
@@ -19,27 +22,71 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    a {
+        margin-bottom: 3rem;
+
+        p {
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        div {}
+    }
 }
 
 .post {
     color: #F8F8F8;
-    > p {
+
+    >p {
         color: #D7D7D7;
         font-family: 'Inter';
         font-weight: 400;
     }
-    > h1 {
+
+    >h1 {
         font-family: 'Inter';
         font-weight: 700;
     }
-    > div > time {
+
+    >div>div>time {
         color: #BBBBBB;
         font-family: 'Inter';
         font-weight: 400;
     }
-    > div > span {
+
+    >div>div>span {
         color: #BBBBBB;
         font-family: 'Inter';
         font-weight: 400;
+    }
+
+    >div>div {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    >div {
+        display: flex;
+        gap: 1.5rem;
+    }
+}
+
+.loadMoreButton {
+    >button {
+        color: #FF57B2;
+        width: 176px;
+        height: 22px;
+        left: 368px;
+        top: 966px;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 22px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
     }
 }

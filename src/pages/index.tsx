@@ -2,6 +2,8 @@ import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 
+import { FiUser, FiCalendar } from 'react-icons/fi';
+
 import { getPrismicClient } from '../services/prismic';
 
 import commonStyles from '../styles/common.module.scss';
@@ -45,8 +47,14 @@ export default function Home({ postsPagination }: HomeProps) {
                 Excerpt da postagem vai aqui asdjk hasdkas hkadjkas dhask asd.
               </p>
               <div>
-                <time>10 de abril de 2021</time>
-                <span>Nome do Autor</span>
+                <div>
+                  <FiCalendar size={20} />
+                  <time>10 Abr 2021</time>
+                </div>
+                <div>
+                  <FiUser size={20} />
+                  <span>Nome do Autor</span>
+                </div>
               </div>
             </a>
           </Link>
@@ -57,8 +65,14 @@ export default function Home({ postsPagination }: HomeProps) {
                 Excerpt da postagem vai aqui asdjk hasdkas hkadjkas dhask asd.
               </p>
               <div>
-                <time>10 de abril de 2021</time>
-                <span>Nome do Autor</span>
+                <div>
+                  <FiCalendar size={20} />
+                  <time>10 Abr 2021</time>
+                </div>
+                <div>
+                  <FiUser size={20} />
+                  <span>Nome do Autor</span>
+                </div>
               </div>
             </a>
           </Link>
@@ -69,8 +83,14 @@ export default function Home({ postsPagination }: HomeProps) {
                 Excerpt da postagem vai aqui asdjk hasdkas hkadjkas dhask asd.
               </p>
               <div>
-                <time>10 de abril de 2021</time>
-                <span>Nome do Autor</span>
+                <div>
+                  <FiCalendar size={20} />
+                  <time>10 Abr 2021</time>
+                </div>
+                <div>
+                  <FiUser size={20} />
+                  <span>Nome do Autor</span>
+                </div>
               </div>
             </a>
           </Link>
@@ -81,11 +101,38 @@ export default function Home({ postsPagination }: HomeProps) {
                 Excerpt da postagem vai aqui asdjk hasdkas hkadjkas dhask asd.
               </p>
               <div>
-                <time>10 de abril de 2021</time>
-                <span>Nome do Autor</span>
+                <div>
+                  <FiCalendar size={20} />
+                  <time>10 Abr 2021</time>
+                </div>
+                <div>
+                  <FiUser size={20} />
+                  <span>Nome do Autor</span>
+                </div>
               </div>
             </a>
           </Link>
+          <Link href="/#">
+            <a className={styles.post}>
+              <h1>Título da postagem</h1>
+              <p>
+                Excerpt da postagem vai aqui asdjk hasdkas hkadjkas dhask asd.
+              </p>
+              <div>
+                <div>
+                  <FiCalendar size={20} />
+                  <time>10 Abr 2021</time>
+                </div>
+                <div>
+                  <FiUser size={20} />
+                  <span>Nome do Autor</span>
+                </div>
+              </div>
+            </a>
+          </Link>
+        </div>
+        <div className={styles.loadMoreButton}>
+          <button type="button">Carregar mais posts</button>
         </div>
       </main>
     </>
