@@ -1,0 +1,7 @@
+{
+  "apiEndpoint": "https://ignite-projeto-do-0.prismic.io/api/v2",
+  "libraries": [
+    "@/slices"
+  ],
+  "_latest": "0.5.1"
+}
