@@ -1,4 +1,3 @@
-import { Query } from '@prismicio/types';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -9,7 +8,6 @@ import { getPrismicClient } from '../services/prismic';
 
 import formatDateToBR from '../utils/date-formatter';
 
-import commonStyles from '../styles/common.module.scss';
 import styles from './home.module.scss';
 
 interface Post {
@@ -31,7 +29,7 @@ interface HomeProps {
   postsPagination: PostPagination;
 }
 
-export default function Home({ postsPagination }: HomeProps) {
+export default function Home({ postsPagination }: HomeProps): unknown {
   return (
     <>
       <Head>
@@ -76,7 +74,6 @@ export const getStaticProps: GetStaticProps = async () => {
     pageSize: 5,
   });
 
-  console.log(postsPagination);
   return {
     props: {
       postsPagination,
