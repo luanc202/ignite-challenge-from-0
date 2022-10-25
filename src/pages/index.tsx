@@ -31,7 +31,7 @@ interface HomeProps {
   postsPagination: PostPagination;
 }
 
-export default function Home({ postsPagination }: HomeProps) {
+export default function Home({ postsPagination }: HomeProps): unknown {
   return (
     <>
       <Head>
@@ -44,7 +44,7 @@ export default function Home({ postsPagination }: HomeProps) {
         </div>
         <div className={styles.postsList}>
           {postsPagination.results.map(post => (
-            <Link href="/#">
+            <Link href={`/post/${post.uid}`}>
               <a className={styles.post}>
                 <h1>{post.data.title}</h1>
                 <p>{post.data.subtitle}</p>
