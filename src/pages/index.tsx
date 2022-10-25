@@ -1,10 +1,10 @@
-import { Query } from '@prismicio/types';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 
 import { FiUser, FiCalendar } from 'react-icons/fi';
 
+import { ReactElement } from 'react';
 import { getPrismicClient } from '../services/prismic';
 
 import formatDateToBR from '../utils/date-formatter';
@@ -31,17 +31,14 @@ interface HomeProps {
   postsPagination: PostPagination;
 }
 
-export default function Home({ postsPagination }: HomeProps): unknown {
+export default function Home({ postsPagination }: HomeProps): ReactElement {
   return (
     <>
       <Head>
         <title>Titulo</title>
       </Head>
 
-      <main className={styles.container}>
-        <div className={styles.logoImage}>
-          <img src="/images/logo-with-text.svg" alt="" />
-        </div>
+      <main className={commonStyles.container}>
         <div className={styles.postsList}>
           {postsPagination.results.map(post => (
             <Link href={`/post/${post.uid}`}>
@@ -76,7 +73,6 @@ export const getStaticProps: GetStaticProps = async () => {
     pageSize: 5,
   });
 
-  console.log(postsPagination);
   return {
     props: {
       postsPagination,
