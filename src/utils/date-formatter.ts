@@ -1,7 +1,6 @@
+import { ptBR } from 'date-fns/locale';
+import { format } from 'date-fns';
+
 export default function formatDateToBR(date: string): string {
-  return new Date(date).toLocaleDateString('pt-BR', {
-    day: '2-digit',
-    month: 'short',
-    year: 'numeric',
-  });
+  return format(new Date(date), 'dd LLL y', { locale: ptBR });
 }
