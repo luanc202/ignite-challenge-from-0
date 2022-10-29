@@ -52,5 +52,11 @@
     color: #BBBBBB;
     h1 {
         font-weight: 700;
+        margin-bottom: 3rem;
+        margin-top: 3rem;
+    }
+
+    h1 ~ p {
+        margin-bottom: 1rem;
     }
 }
