@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { ReactElement } from 'react';
 import { FiCalendar, FiClock, FiUser } from 'react-icons/fi';
 
-import * as prismicH from '@prismicio/helpers';
 import { getPrismicClient } from '../../services/prismic';
 
 import commonStyles from '../../styles/common.module.scss';
@@ -74,7 +73,7 @@ export default function Post({ post }: PostProps): ReactElement {
   );
 }
 
-export const getStaticPaths = async (): Promise<unknown> => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const prismic = getPrismicClient({});
   const posts = await prismic.getByType('post');
 
@@ -85,15 +84,12 @@ export const getStaticPaths = async (): Promise<unknown> => {
   return { paths, fallback: true };
 };
 
-export const getStaticProps = async ({ params }): Promise<unknown> => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params;
 
   const prismic = getPrismicClient({});
 
   const response = await prismic.getByUID('post', String(slug), {});
-
-  console.log(response.data);
-  console.log(response.data.content[0]);
 
   return {
     props: {
