@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import { FiUser, FiCalendar } from 'react-icons/fi';
 
+import { ReactElement } from 'react';
 import { getPrismicClient } from '../services/prismic';
 
 import formatDateToBR from '../utils/date-formatter';
@@ -29,26 +30,23 @@ interface HomeProps {
   postsPagination: PostPagination;
 }
 
-export default function Home({ postsPagination }: HomeProps): unknown {
+export default function Home({ postsPagination }: HomeProps): ReactElement {
   return (
     <>
       <Head>
         <title>Titulo</title>
       </Head>
 
-      <main className={styles.container}>
-        <div className={styles.logoImage}>
-          <img src="/images/logo-with-text.svg" alt="" />
-        </div>
+      <main className={commonStyles.container}>
         <div className={styles.postsList}>
           {postsPagination.results.map(post => (
-            <Link href="/#">
+            <Link href={`/post/${post.uid}`}>
               <a className={styles.post}>
                 <h1>{post.data.title}</h1>
                 <p>{post.data.subtitle}</p>
                 <div>
                   <div>
-                    <FiCalendar size={20} />
+                    <FiCalendar size=git config pull.rebase false{20} />
                     <time>{formatDateToBR(post.first_publication_date)}</time>
                   </div>
                   <div>
