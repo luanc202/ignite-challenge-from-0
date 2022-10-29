@@ -9,6 +9,7 @@ import { getPrismicClient } from '../services/prismic';
 
 import formatDateToBR from '../utils/date-formatter';
 
+import commonStyles from '../styles/common.module.scss';
 import styles from './home.module.scss';
 
 interface Post {
@@ -46,7 +47,7 @@ export default function Home({ postsPagination }: HomeProps): ReactElement {
                 <p>{post.data.subtitle}</p>
                 <div>
                   <div>
-                    <FiCalendar size=git config pull.rebase false{20} />
+                    <FiCalendar size={20} />
                     <time>{formatDateToBR(post.first_publication_date)}</time>
                   </div>
                   <div>
