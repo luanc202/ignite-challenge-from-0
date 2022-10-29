@@ -61,7 +61,7 @@ export default function Post({ post }: PostProps): ReactElement {
         <div className={styles.postContent}>
           {post.data.content.map(content => (
             <>
-              <h1 key={content.heading}>{content.heading}</h1>
+              {content.heading ? <h1>{content.heading}</h1> : null}
               {content.body.map(body => (
                 <p>{body.text}</p>
               ))}
