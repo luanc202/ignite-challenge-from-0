@@ -1,7 +1,56 @@
 .banner {
     img {
-        width: 90rem;
-        height: 40rem;
+        width: 100%;
+        height: 25rem;
         object-fit: cover;
+    }
+}
+
+.postHeader {
+    margin-top: 5rem;
+    margin-bottom: 4rem;
+
+    color: #F8F8F8;
+
+    >p {
+        color: #D7D7D7;
+        font-family: 'Inter';
+        font-weight: 400;
+    }
+
+    >h1 {
+        font-family: 'Inter';
+        font-weight: 700;
+        font-size: 3rem;
+    }
+
+    >div>div>time {
+        color: #BBBBBB;
+        font-family: 'Inter';
+        font-weight: 400;
+    }
+
+    >div>div>span {
+        color: #BBBBBB;
+        font-family: 'Inter';
+        font-weight: 400;
+    }
+
+    >div>div {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+    }
+
+    >div {
+        display: flex;
+        gap: 1.5rem;
+    }
+}
+
+.postContent {
+    color: #BBBBBB;
+    h1 {
+        font-weight: 700;
     }
 }
