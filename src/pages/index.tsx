@@ -35,7 +35,7 @@ export default function Home({ postsPagination }: HomeProps): ReactElement {
   return (
     <>
       <Head>
-        <title>Titulo</title>
+        <title>Spacetraveling</title>
       </Head>
 
       <main className={commonStyles.container}>
