@@ -38,9 +38,20 @@ export default function Post({ post }: PostProps): ReactElement {
     return <div>Carregando...</div>;
   }
 
-  // function calcReadTime() {
+  function calcReadTime(): number {
+    const regexPattern = /[^\w]/;
+    const wordsCount = post.data.content.reduce((acc, item) => {
+      const headingWords = item.heading?.split(regexPattern).length ?? 0;
 
-  // }
+      const contentWords = item.body.reduce((bodyAcc, bodyItem) => {
+        return bodyAcc + bodyItem.text.split(regexPattern).length;
+      }, 0);
+
+      return acc + headingWords + contentWords;
+    }, 0);
+
+    return Math.round(wordsCount / 200);
+  }
 
   return (
     <>
@@ -61,13 +72,13 @@ export default function Post({ post }: PostProps): ReactElement {
             </div>
             <div>
               <FiClock size={20} />
-              <span>4 min</span>
+              <span>{calcReadTime()} min</span>
             </div>
           </div>
         </div>
         <div className={styles.postContent}>
           {post.data.content.map(content => (
-            <>
+            <div key={(Math.random() * 9999999).toString()}>
               {content.heading ? <h1>{content.heading}</h1> : null}
               <div
                 // eslint-disable-next-line react/no-danger
@@ -75,7 +86,7 @@ export default function Post({ post }: PostProps): ReactElement {
                   __html: RichText.asHtml(content.body),
                 }}
               />
-            </>
+            </div>
           ))}
         </div>
       </div>
