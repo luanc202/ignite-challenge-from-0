@@ -34,10 +34,6 @@ interface HomeProps {
 export default function Home({ postsPagination }: HomeProps): ReactElement {
   return (
     <>
-      <Head>
-        <title>Spacetraveling</title>
-      </Head>
-
       <main className={commonStyles.container}>
         <div className={styles.postsList}>
           {postsPagination.results.map(post => (
