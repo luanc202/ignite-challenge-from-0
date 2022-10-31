@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Head from 'next/head';
+import { RichText } from 'prismic-dom';
 import { ReactElement } from 'react';
 import { FiCalendar, FiClock, FiUser } from 'react-icons/fi';
 
@@ -31,12 +31,12 @@ interface PostProps {
 }
 
 export default function Post({ post }: PostProps): ReactElement {
+  // function calcReadTime() {
+
+  // }
+
   return (
     <>
-      <Head>
-        <title>{post.data.title}</title>
-      </Head>
-
       <div className={styles.banner}>
         <img src={post.data.banner.url} alt="" />
       </div>
@@ -62,9 +62,12 @@ export default function Post({ post }: PostProps): ReactElement {
           {post.data.content.map(content => (
             <>
               {content.heading ? <h1>{content.heading}</h1> : null}
-              {content.body.map(body => (
-                <p>{body.text}</p>
-              ))}
+              <div
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{
+                  __html: RichText.asHtml(content.body),
+                }}
+              />
             </>
           ))}
         </div>
