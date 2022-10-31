@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
 import { RichText } from 'prismic-dom';
 import { ReactElement } from 'react';
 import { FiCalendar, FiClock, FiUser } from 'react-icons/fi';
@@ -31,6 +32,12 @@ interface PostProps {
 }
 
 export default function Post({ post }: PostProps): ReactElement {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Carregando...</div>;
+  }
+
   // function calcReadTime() {
 
   // }
