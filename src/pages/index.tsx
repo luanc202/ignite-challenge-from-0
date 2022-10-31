@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { FiUser, FiCalendar } from 'react-icons/fi';
 
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
 import { getPrismicClient } from '../services/prismic';
 
 import formatDateToBR from '../utils/date-formatter';
@@ -31,11 +31,23 @@ interface HomeProps {
 }
 
 export default function Home({ postsPagination }: HomeProps): ReactElement {
+  const [posts, setPosts] = useState<Post[]>(postsPagination.results);
+  const [nextPage, setNextPage] = useState<string>(postsPagination.next_page);
+
+  function handleLoadMorePosts(): void {
+    fetch(nextPage)
+      .then(response => response.json())
+      .then(data => {
+        setPosts([...posts, ...data.results]);
+        setNextPage(data.next_page);
+      });
+  }
+
   return (
     <>
       <main className={commonStyles.container}>
         <div className={styles.postsList}>
-          {postsPagination.results.map(post => (
+          {posts.map(post => (
             <Link key={post.uid} href={`/post/${post.uid}`}>
               <a className={styles.post}>
                 <h1>{post.data.title}</h1>
@@ -54,9 +66,13 @@ export default function Home({ postsPagination }: HomeProps): ReactElement {
             </Link>
           ))}
         </div>
-        <div className={styles.loadMoreButton}>
-          <button type="button">Carregar mais posts</button>
-        </div>
+        {nextPage != null ? (
+          <div className={styles.loadMoreButton}>
+            <button type="button" onClick={() => handleLoadMorePosts()}>
+              Carregar mais posts
+            </button>
+          </div>
+        ) : null}
       </main>
     </>
   );
